@@ -11,7 +11,8 @@ import 'package:subscription_odoo_api/env.dart';
 class Repository {
   Repository({required this.client});
   final Dio client;
-  static String url = 'http://127.0.0.1:8000/api';
+  // static String url = 'http://127.0.0.1:8000/api';
+  static String url = 'http://54.167.2.8/api';
 
   Future<bool> saveAwsSalesBulk(
     List<Map<String, dynamic>> dataList,
