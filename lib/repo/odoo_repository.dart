@@ -433,29 +433,35 @@ class OdooRepository {
     //   "&",
     //   ["move_type", "=", "out_invoice"],
     //   "&",
+    //   "&",
     //   ["state", "=", "posted"],
     //   [
     //     "payment_state",
     //     "in",
     //     ["in_payment", "paid"]
+    //   ],
+    //   [
+    //     "partner_id.category_id",
+    //     "in",
+    //     [1]
     //   ]
     // ];
 
     final domain = [
       "&",
-      ["move_type", "=", "out_invoice"],
       "&",
+      [
+        "move_type",
+        "in",
+        ["out_invoice", "out_refund", "out_receipt"]
+      ],
+      ["journal_id", "=", 8],
       "&",
       ["state", "=", "posted"],
       [
         "payment_state",
         "in",
         ["in_payment", "paid"]
-      ],
-      [
-        "partner_id.category_id",
-        "in",
-        [1]
       ]
     ];
 // final domain = [

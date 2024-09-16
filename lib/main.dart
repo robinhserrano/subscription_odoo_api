@@ -78,8 +78,16 @@ Future<void> main() async {
     List<AwsFilterSubs> parsedAccSubs = [];
     List<AwsFilterSubs> parsedSubs = [];
 
-    // List<AwsFilterSubs> nullAccSubs = [];
+    List<AwsFilterSubs> nullAccSubs = [];
     List<AwsSalesQuotations> salesQuotations = [];
+    var lele;
+    try {
+      var lele = accSubs
+          .firstWhere((e) => e.partnerId.displayName == 'Josh Cumberland');
+    } catch (e) {
+      print(e);
+    }
+
     List<String> activitySummary = [];
 
     for (var subs in accSubs) {
@@ -95,6 +103,7 @@ Future<void> main() async {
         phone: (subs.partnerId.phone ?? '').toString(),
         email: (subs.partnerId.email ?? '').toString(),
         dueDate: subs.activityDateDeadline,
+        category: null,
       );
 
       if (subs.activityDateDeadline != null) {
@@ -106,18 +115,18 @@ Future<void> main() async {
 
     for (var subs in subs) {
       parsedSubs.add(AwsFilterSubs(
-        invoiceNumber: subs.invoiceId?.name,
-        salesOrderNo: subs.name,
-        customerName: subs.partnerId.displayName,
-        invoiceDate: subs.invoiceId?.date,
-        paymentStatus: subs.invoiceId?.paymentState,
-        address: (subs.partnerId.contactAddress ?? '').toString(),
-        stateId: int.tryParse((subs.partnerId.stateId ?? '').toString()),
-        activitySummary: subs.activitySummary,
-        phone: (subs.partnerId.phone ?? '').toString(),
-        email: (subs.partnerId.email ?? '').toString(),
-        dueDate: subs.nextInvoiceDate,
-      ));
+          invoiceNumber: subs.invoiceId?.name,
+          salesOrderNo: subs.name,
+          customerName: subs.partnerId.displayName,
+          invoiceDate: subs.invoiceId?.date,
+          paymentStatus: subs.invoiceId?.paymentState,
+          address: (subs.partnerId.contactAddress ?? '').toString(),
+          stateId: int.tryParse((subs.partnerId.stateId ?? '').toString()),
+          activitySummary: subs.activitySummary,
+          phone: (subs.partnerId.phone ?? '').toString(),
+          email: (subs.partnerId.email ?? '').toString(),
+          dueDate: subs.nextInvoiceDate,
+          category: 'Subscription'));
     }
 
     await saveAwsFilterSubs([...parsedAccSubs, ...parsedSubs]);
@@ -143,18 +152,18 @@ Future<void> main() async {
     print(
         '_ Fetch Sales Success! : ${allSalesEnd.difference(allSalesStart).inMilliseconds}');
 
-    var setActivitySummary = activitySummary.toSet().toList();
-    var tempActivitySummary = [];
-    List<String> activitySummaries = [];
+    // var setActivitySummary = activitySummary.toSet().toList();
+    // var tempActivitySummary = [];
+    // List<String> activitySummaries = [];
 
-    for (var item in setActivitySummary) {
-      String trimmedText = item.replaceAll(RegExp(r"\s+"), "");
-      if (!tempActivitySummary.contains(trimmedText)) {
-        activitySummaries.add(item);
-      }
-    }
+    // for (var item in setActivitySummary) {
+    //   String trimmedText = item.replaceAll(RegExp(r"\s+"), "");
+    //   if (!tempActivitySummary.contains(trimmedText)) {
+    //     activitySummaries.add(item);
+    //   }
+    // }
 
-    saveActivitySummary(activitySummaries);
+    // saveActivitySummary(activitySummaries);
 
     var totalEnd = DateTime.now();
     print('_ Total Time: ${totalEnd.difference(totalStart).inMilliseconds}');
@@ -188,6 +197,7 @@ Future<bool> saveAwsFilterSubs(
         'phone': subs.phone,
         'email': subs.email,
         'due_date': subs.dueDate?.toIso8601String(),
+        'category': subs.category,
         // subs.dueDate != null ? dateFormat.format(subs.dueDate!).toString() : null,
       });
     }
@@ -443,11 +453,11 @@ Future<bool> saveAwsStateIds(
       });
     }
 
-    dataList.add({
-      'state_id': dataList.length + 1,
-      'name': 'All States',
-      'code': 'ALL',
-    });
+    // dataList.add({
+    //   'state_id': dataList.length + 1,
+    //   'name': 'All States',
+    //   'code': 'ALL',
+    // });
 
     await repo.saveAwsStateIds(dataList);
     // onProgress(progress);

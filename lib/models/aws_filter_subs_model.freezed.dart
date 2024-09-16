@@ -31,6 +31,7 @@ mixin _$AwsFilterSubs {
   String? get phone => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   DateTime? get dueDate => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +56,8 @@ abstract class $AwsFilterSubsCopyWith<$Res> {
       String? activitySummary,
       String? phone,
       String? email,
-      DateTime? dueDate});
+      DateTime? dueDate,
+      String? category});
 }
 
 /// @nodoc
@@ -82,6 +84,7 @@ class _$AwsFilterSubsCopyWithImpl<$Res, $Val extends AwsFilterSubs>
     Object? phone = freezed,
     Object? email = freezed,
     Object? dueDate = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       invoiceNumber: freezed == invoiceNumber
@@ -128,6 +131,10 @@ class _$AwsFilterSubsCopyWithImpl<$Res, $Val extends AwsFilterSubs>
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -151,7 +158,8 @@ abstract class _$$AwsFilterSubsImplCopyWith<$Res>
       String? activitySummary,
       String? phone,
       String? email,
-      DateTime? dueDate});
+      DateTime? dueDate,
+      String? category});
 }
 
 /// @nodoc
@@ -176,6 +184,7 @@ class __$$AwsFilterSubsImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? email = freezed,
     Object? dueDate = freezed,
+    Object? category = freezed,
   }) {
     return _then(_$AwsFilterSubsImpl(
       invoiceNumber: freezed == invoiceNumber
@@ -222,6 +231,10 @@ class __$$AwsFilterSubsImplCopyWithImpl<$Res>
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -240,7 +253,8 @@ class _$AwsFilterSubsImpl implements _AwsFilterSubs {
       required this.activitySummary,
       required this.phone,
       required this.email,
-      required this.dueDate});
+      required this.dueDate,
+      required this.category});
 
   factory _$AwsFilterSubsImpl.fromJson(Map<String, dynamic> json) =>
       _$$AwsFilterSubsImplFromJson(json);
@@ -267,10 +281,12 @@ class _$AwsFilterSubsImpl implements _AwsFilterSubs {
   final String? email;
   @override
   final DateTime? dueDate;
+  @override
+  final String? category;
 
   @override
   String toString() {
-    return 'AwsFilterSubs(invoiceNumber: $invoiceNumber, salesOrderNo: $salesOrderNo, customerName: $customerName, invoiceDate: $invoiceDate, paymentStatus: $paymentStatus, address: $address, stateId: $stateId, activitySummary: $activitySummary, phone: $phone, email: $email, dueDate: $dueDate)';
+    return 'AwsFilterSubs(invoiceNumber: $invoiceNumber, salesOrderNo: $salesOrderNo, customerName: $customerName, invoiceDate: $invoiceDate, paymentStatus: $paymentStatus, address: $address, stateId: $stateId, activitySummary: $activitySummary, phone: $phone, email: $email, dueDate: $dueDate, category: $category)';
   }
 
   @override
@@ -294,7 +310,9 @@ class _$AwsFilterSubsImpl implements _AwsFilterSubs {
                 other.activitySummary == activitySummary) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.dueDate, dueDate) || other.dueDate == dueDate));
+            (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @JsonKey(ignore: true)
@@ -311,7 +329,8 @@ class _$AwsFilterSubsImpl implements _AwsFilterSubs {
       activitySummary,
       phone,
       email,
-      dueDate);
+      dueDate,
+      category);
 
   @JsonKey(ignore: true)
   @override
@@ -339,7 +358,8 @@ abstract class _AwsFilterSubs implements AwsFilterSubs {
       required final String? activitySummary,
       required final String? phone,
       required final String? email,
-      required final DateTime? dueDate}) = _$AwsFilterSubsImpl;
+      required final DateTime? dueDate,
+      required final String? category}) = _$AwsFilterSubsImpl;
 
   factory _AwsFilterSubs.fromJson(Map<String, dynamic> json) =
       _$AwsFilterSubsImpl.fromJson;
@@ -366,6 +386,8 @@ abstract class _AwsFilterSubs implements AwsFilterSubs {
   String? get email;
   @override
   DateTime? get dueDate;
+  @override
+  String? get category;
   @override
   @JsonKey(ignore: true)
   _$$AwsFilterSubsImplCopyWith<_$AwsFilterSubsImpl> get copyWith =>
