@@ -28,6 +28,18 @@ mixin _$OdooContact {
   @JsonKey(name: 'parent_id')
   @BoolParentIdConverter()
   ParentIdModel? get parentId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'street')
+  @BoolStringNullableConverter()
+  String? get street => throw _privateConstructorUsedError;
+  @JsonKey(name: 'street2')
+  @BoolStringNullableConverter()
+  String? get street2 => throw _privateConstructorUsedError;
+  @JsonKey(name: 'zip')
+  @BoolStringNullableConverter()
+  String? get zip => throw _privateConstructorUsedError;
+  @JsonKey(name: 'city')
+  @BoolStringNullableConverter()
+  String? get city => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +59,11 @@ abstract class $OdooContactCopyWith<$Res> {
       @JsonKey(name: 'display_name') String name,
       @JsonKey(name: 'parent_id')
       @BoolParentIdConverter()
-      ParentIdModel? parentId});
+      ParentIdModel? parentId,
+      @JsonKey(name: 'street') @BoolStringNullableConverter() String? street,
+      @JsonKey(name: 'street2') @BoolStringNullableConverter() String? street2,
+      @JsonKey(name: 'zip') @BoolStringNullableConverter() String? zip,
+      @JsonKey(name: 'city') @BoolStringNullableConverter() String? city});
 
   $ParentIdModelCopyWith<$Res>? get parentId;
 }
@@ -69,6 +85,10 @@ class _$OdooContactCopyWithImpl<$Res, $Val extends OdooContact>
     Object? completeAddress = null,
     Object? name = null,
     Object? parentId = freezed,
+    Object? street = freezed,
+    Object? street2 = freezed,
+    Object? zip = freezed,
+    Object? city = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -87,6 +107,22 @@ class _$OdooContactCopyWithImpl<$Res, $Val extends OdooContact>
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
               as ParentIdModel?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street2: freezed == street2
+          ? _value.street2
+          : street2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      zip: freezed == zip
+          ? _value.zip
+          : zip // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -117,7 +153,11 @@ abstract class _$$OdooContactImplCopyWith<$Res>
       @JsonKey(name: 'display_name') String name,
       @JsonKey(name: 'parent_id')
       @BoolParentIdConverter()
-      ParentIdModel? parentId});
+      ParentIdModel? parentId,
+      @JsonKey(name: 'street') @BoolStringNullableConverter() String? street,
+      @JsonKey(name: 'street2') @BoolStringNullableConverter() String? street2,
+      @JsonKey(name: 'zip') @BoolStringNullableConverter() String? zip,
+      @JsonKey(name: 'city') @BoolStringNullableConverter() String? city});
 
   @override
   $ParentIdModelCopyWith<$Res>? get parentId;
@@ -138,6 +178,10 @@ class __$$OdooContactImplCopyWithImpl<$Res>
     Object? completeAddress = null,
     Object? name = null,
     Object? parentId = freezed,
+    Object? street = freezed,
+    Object? street2 = freezed,
+    Object? zip = freezed,
+    Object? city = freezed,
   }) {
     return _then(_$OdooContactImpl(
       id: null == id
@@ -156,6 +200,22 @@ class __$$OdooContactImplCopyWithImpl<$Res>
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
               as ParentIdModel?,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      street2: freezed == street2
+          ? _value.street2
+          : street2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      zip: freezed == zip
+          ? _value.zip
+          : zip // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -169,7 +229,17 @@ class _$OdooContactImpl implements _OdooContact {
       @JsonKey(name: 'display_name') required this.name,
       @JsonKey(name: 'parent_id')
       @BoolParentIdConverter()
-      required this.parentId});
+      required this.parentId,
+      @JsonKey(name: 'street')
+      @BoolStringNullableConverter()
+      required this.street,
+      @JsonKey(name: 'street2')
+      @BoolStringNullableConverter()
+      required this.street2,
+      @JsonKey(name: 'zip') @BoolStringNullableConverter() required this.zip,
+      @JsonKey(name: 'city')
+      @BoolStringNullableConverter()
+      required this.city});
 
   factory _$OdooContactImpl.fromJson(Map<String, dynamic> json) =>
       _$$OdooContactImplFromJson(json);
@@ -186,10 +256,26 @@ class _$OdooContactImpl implements _OdooContact {
   @JsonKey(name: 'parent_id')
   @BoolParentIdConverter()
   final ParentIdModel? parentId;
+  @override
+  @JsonKey(name: 'street')
+  @BoolStringNullableConverter()
+  final String? street;
+  @override
+  @JsonKey(name: 'street2')
+  @BoolStringNullableConverter()
+  final String? street2;
+  @override
+  @JsonKey(name: 'zip')
+  @BoolStringNullableConverter()
+  final String? zip;
+  @override
+  @JsonKey(name: 'city')
+  @BoolStringNullableConverter()
+  final String? city;
 
   @override
   String toString() {
-    return 'OdooContact(id: $id, completeAddress: $completeAddress, name: $name, parentId: $parentId)';
+    return 'OdooContact(id: $id, completeAddress: $completeAddress, name: $name, parentId: $parentId, street: $street, street2: $street2, zip: $zip, city: $city)';
   }
 
   @override
@@ -202,13 +288,17 @@ class _$OdooContactImpl implements _OdooContact {
                 other.completeAddress == completeAddress) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.parentId, parentId) ||
-                other.parentId == parentId));
+                other.parentId == parentId) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.street2, street2) || other.street2 == street2) &&
+            (identical(other.zip, zip) || other.zip == zip) &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, completeAddress, name, parentId);
+  int get hashCode => Object.hash(runtimeType, id, completeAddress, name,
+      parentId, street, street2, zip, city);
 
   @JsonKey(ignore: true)
   @override
@@ -232,7 +322,19 @@ abstract class _OdooContact implements OdooContact {
       @JsonKey(name: 'display_name') required final String name,
       @JsonKey(name: 'parent_id')
       @BoolParentIdConverter()
-      required final ParentIdModel? parentId}) = _$OdooContactImpl;
+      required final ParentIdModel? parentId,
+      @JsonKey(name: 'street')
+      @BoolStringNullableConverter()
+      required final String? street,
+      @JsonKey(name: 'street2')
+      @BoolStringNullableConverter()
+      required final String? street2,
+      @JsonKey(name: 'zip')
+      @BoolStringNullableConverter()
+      required final String? zip,
+      @JsonKey(name: 'city')
+      @BoolStringNullableConverter()
+      required final String? city}) = _$OdooContactImpl;
 
   factory _OdooContact.fromJson(Map<String, dynamic> json) =
       _$OdooContactImpl.fromJson;
@@ -249,6 +351,22 @@ abstract class _OdooContact implements OdooContact {
   @JsonKey(name: 'parent_id')
   @BoolParentIdConverter()
   ParentIdModel? get parentId;
+  @override
+  @JsonKey(name: 'street')
+  @BoolStringNullableConverter()
+  String? get street;
+  @override
+  @JsonKey(name: 'street2')
+  @BoolStringNullableConverter()
+  String? get street2;
+  @override
+  @JsonKey(name: 'zip')
+  @BoolStringNullableConverter()
+  String? get zip;
+  @override
+  @JsonKey(name: 'city')
+  @BoolStringNullableConverter()
+  String? get city;
   @override
   @JsonKey(ignore: true)
   _$$OdooContactImplCopyWith<_$OdooContactImpl> get copyWith =>

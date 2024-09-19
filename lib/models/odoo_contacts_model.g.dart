@@ -12,6 +12,10 @@ _$OdooContactImpl _$$OdooContactImplFromJson(Map<String, dynamic> json) =>
       completeAddress: json['contact_address_complete'] as String,
       name: json['display_name'] as String,
       parentId: const BoolParentIdConverter().fromJson(json['parent_id']),
+      street: const BoolStringNullableConverter().fromJson(json['street']),
+      street2: const BoolStringNullableConverter().fromJson(json['street2']),
+      zip: const BoolStringNullableConverter().fromJson(json['zip']),
+      city: const BoolStringNullableConverter().fromJson(json['city']),
     );
 
 Map<String, dynamic> _$$OdooContactImplToJson(_$OdooContactImpl instance) =>
@@ -21,6 +25,10 @@ Map<String, dynamic> _$$OdooContactImplToJson(_$OdooContactImpl instance) =>
       'display_name': instance.name,
       'parent_id': _$JsonConverterToJson<dynamic, ParentIdModel>(
           instance.parentId, const BoolParentIdConverter().toJson),
+      'street': const BoolStringNullableConverter().toJson(instance.street),
+      'street2': const BoolStringNullableConverter().toJson(instance.street2),
+      'zip': const BoolStringNullableConverter().toJson(instance.zip),
+      'city': const BoolStringNullableConverter().toJson(instance.city),
     };
 
 Json? _$JsonConverterToJson<Json, Value>(

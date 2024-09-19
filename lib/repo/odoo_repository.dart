@@ -607,6 +607,10 @@ class OdooRepository {
       "display_name": {},
       "contact_address_complete": {},
       "parent_id": {"fields": {}},
+      "street": {},
+      "street2": {},
+      "zip": {},
+      "city": {},
     };
 
     // final domain = [

@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target, always_put_required_named_parameters_first
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:subscription_odoo_api/models/bool_to_string_converter.dart';
 part 'odoo_contacts_model.freezed.dart';
 part 'odoo_contacts_model.g.dart';
 
@@ -13,6 +14,14 @@ class OdooContact with _$OdooContact {
     @JsonKey(name: 'parent_id')
     @BoolParentIdConverter()
     required ParentIdModel? parentId,
+    @JsonKey(name: 'street')
+    @BoolStringNullableConverter()
+    required String? street,
+    @JsonKey(name: 'street2')
+    @BoolStringNullableConverter()
+    required String? street2,
+    @JsonKey(name: 'zip') @BoolStringNullableConverter() required String? zip,
+    @JsonKey(name: 'city') @BoolStringNullableConverter() required String? city,
   }) = _OdooContact;
 
   factory OdooContact.fromJson(Map<String, dynamic> json) =>

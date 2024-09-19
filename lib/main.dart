@@ -522,6 +522,10 @@ Future<bool> saveAwsContacts(
         'name': contact.name,
         'complete_address': contact.completeAddress,
         'parent_customer_name': originalCustomerName,
+        'street': contact.street,
+        'street2': contact.street2,
+        'zip': contact.zip,
+        'city': contact.city,
       });
     }
 
