@@ -16,6 +16,7 @@ class AwsFilterSubs with _$AwsFilterSubs {
       required String? phone,
       required String? email,
       required DateTime? dueDate,
+      required DateTime? startDate,
       required String? category}) = _AwsFilterSubs;
   factory AwsFilterSubs.fromJson(Map<String, dynamic> json) =>
       _$AwsFilterSubsFromJson(json);

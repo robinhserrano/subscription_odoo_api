@@ -374,6 +374,7 @@ class OdooRepository {
         },
         "activity_summary": {},
         "next_invoice_date": {},
+        "start_date": {},
       };
 
       final domain = [

@@ -15,6 +15,7 @@ class OdooSubscriptions with _$OdooSubscriptions {
     @BoolStringConverter()
     required String? activitySummary, //K
     @JsonKey(name: 'next_invoice_date') required DateTime? nextInvoiceDate,
+    @JsonKey(name: 'start_date') required DateTime? startDate,
   }) = _OdooSubscriptions;
 
   factory OdooSubscriptions.fromJson(Map<String, dynamic> json) =>

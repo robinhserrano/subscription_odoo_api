@@ -31,6 +31,8 @@ mixin _$OdooSubscriptions {
   String? get activitySummary => throw _privateConstructorUsedError; //K
   @JsonKey(name: 'next_invoice_date')
   DateTime? get nextInvoiceDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'start_date')
+  DateTime? get startDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +54,8 @@ abstract class $OdooSubscriptionsCopyWith<$Res> {
       @JsonKey(name: 'activity_summary')
       @BoolStringConverter()
       String? activitySummary,
-      @JsonKey(name: 'next_invoice_date') DateTime? nextInvoiceDate});
+      @JsonKey(name: 'next_invoice_date') DateTime? nextInvoiceDate,
+      @JsonKey(name: 'start_date') DateTime? startDate});
 
   $PartnerIdModelCopyWith<$Res> get partnerId;
   $InvoiceIdModelCopyWith<$Res>? get invoiceId;
@@ -77,6 +80,7 @@ class _$OdooSubscriptionsCopyWithImpl<$Res, $Val extends OdooSubscriptions>
     Object? invoiceId = freezed,
     Object? activitySummary = freezed,
     Object? nextInvoiceDate = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -102,6 +106,10 @@ class _$OdooSubscriptionsCopyWithImpl<$Res, $Val extends OdooSubscriptions>
       nextInvoiceDate: freezed == nextInvoiceDate
           ? _value.nextInvoiceDate
           : nextInvoiceDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ) as $Val);
   }
@@ -143,7 +151,8 @@ abstract class _$$OdooSubscriptionsImplCopyWith<$Res>
       @JsonKey(name: 'activity_summary')
       @BoolStringConverter()
       String? activitySummary,
-      @JsonKey(name: 'next_invoice_date') DateTime? nextInvoiceDate});
+      @JsonKey(name: 'next_invoice_date') DateTime? nextInvoiceDate,
+      @JsonKey(name: 'start_date') DateTime? startDate});
 
   @override
   $PartnerIdModelCopyWith<$Res> get partnerId;
@@ -168,6 +177,7 @@ class __$$OdooSubscriptionsImplCopyWithImpl<$Res>
     Object? invoiceId = freezed,
     Object? activitySummary = freezed,
     Object? nextInvoiceDate = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_$OdooSubscriptionsImpl(
       id: freezed == id
@@ -194,6 +204,10 @@ class __$$OdooSubscriptionsImplCopyWithImpl<$Res>
           ? _value.nextInvoiceDate
           : nextInvoiceDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -209,7 +223,8 @@ class _$OdooSubscriptionsImpl implements _OdooSubscriptions {
       @JsonKey(name: 'activity_summary')
       @BoolStringConverter()
       required this.activitySummary,
-      @JsonKey(name: 'next_invoice_date') required this.nextInvoiceDate});
+      @JsonKey(name: 'next_invoice_date') required this.nextInvoiceDate,
+      @JsonKey(name: 'start_date') required this.startDate});
 
   factory _$OdooSubscriptionsImpl.fromJson(Map<String, dynamic> json) =>
       _$$OdooSubscriptionsImplFromJson(json);
@@ -232,10 +247,13 @@ class _$OdooSubscriptionsImpl implements _OdooSubscriptions {
   @override
   @JsonKey(name: 'next_invoice_date')
   final DateTime? nextInvoiceDate;
+  @override
+  @JsonKey(name: 'start_date')
+  final DateTime? startDate;
 
   @override
   String toString() {
-    return 'OdooSubscriptions(id: $id, name: $name, partnerId: $partnerId, invoiceId: $invoiceId, activitySummary: $activitySummary, nextInvoiceDate: $nextInvoiceDate)';
+    return 'OdooSubscriptions(id: $id, name: $name, partnerId: $partnerId, invoiceId: $invoiceId, activitySummary: $activitySummary, nextInvoiceDate: $nextInvoiceDate, startDate: $startDate)';
   }
 
   @override
@@ -252,13 +270,15 @@ class _$OdooSubscriptionsImpl implements _OdooSubscriptions {
             (identical(other.activitySummary, activitySummary) ||
                 other.activitySummary == activitySummary) &&
             (identical(other.nextInvoiceDate, nextInvoiceDate) ||
-                other.nextInvoiceDate == nextInvoiceDate));
+                other.nextInvoiceDate == nextInvoiceDate) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, partnerId, invoiceId,
-      activitySummary, nextInvoiceDate);
+      activitySummary, nextInvoiceDate, startDate);
 
   @JsonKey(ignore: true)
   @override
@@ -277,15 +297,17 @@ class _$OdooSubscriptionsImpl implements _OdooSubscriptions {
 
 abstract class _OdooSubscriptions implements OdooSubscriptions {
   const factory _OdooSubscriptions(
-      {required final int? id,
-      required final String? name,
-      @JsonKey(name: 'partner_id') required final PartnerIdModel partnerId,
-      @JsonKey(name: 'invoice_id') required final InvoiceIdModel? invoiceId,
-      @JsonKey(name: 'activity_summary')
-      @BoolStringConverter()
-      required final String? activitySummary,
-      @JsonKey(name: 'next_invoice_date')
-      required final DateTime? nextInvoiceDate}) = _$OdooSubscriptionsImpl;
+          {required final int? id,
+          required final String? name,
+          @JsonKey(name: 'partner_id') required final PartnerIdModel partnerId,
+          @JsonKey(name: 'invoice_id') required final InvoiceIdModel? invoiceId,
+          @JsonKey(name: 'activity_summary')
+          @BoolStringConverter()
+          required final String? activitySummary,
+          @JsonKey(name: 'next_invoice_date')
+          required final DateTime? nextInvoiceDate,
+          @JsonKey(name: 'start_date') required final DateTime? startDate}) =
+      _$OdooSubscriptionsImpl;
 
   factory _OdooSubscriptions.fromJson(Map<String, dynamic> json) =
       _$OdooSubscriptionsImpl.fromJson;
@@ -307,6 +329,9 @@ abstract class _OdooSubscriptions implements OdooSubscriptions {
   @override //K
   @JsonKey(name: 'next_invoice_date')
   DateTime? get nextInvoiceDate;
+  @override
+  @JsonKey(name: 'start_date')
+  DateTime? get startDate;
   @override
   @JsonKey(ignore: true)
   _$$OdooSubscriptionsImplCopyWith<_$OdooSubscriptionsImpl> get copyWith =>

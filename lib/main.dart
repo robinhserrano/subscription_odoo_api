@@ -104,6 +104,7 @@ Future<void> main() async {
         email: (subs.partnerId.email ?? '').toString(),
         dueDate: subs.activityDateDeadline,
         category: null,
+        startDate: null,
       );
 
       if (subs.activityDateDeadline != null) {
@@ -114,7 +115,8 @@ Future<void> main() async {
     }
 
     for (var subs in subs) {
-      parsedSubs.add(AwsFilterSubs(
+      parsedSubs.add(
+        AwsFilterSubs(
           invoiceNumber: subs.invoiceId?.name,
           salesOrderNo: subs.name,
           customerName: subs.partnerId.displayName,
@@ -126,7 +128,10 @@ Future<void> main() async {
           phone: (subs.partnerId.phone ?? '').toString(),
           email: (subs.partnerId.email ?? '').toString(),
           dueDate: subs.nextInvoiceDate,
-          category: 'Subscription'));
+          startDate: subs.startDate,
+          category: 'Subscription',
+        ),
+      );
     }
 
     await saveAwsFilterSubs([...parsedAccSubs, ...parsedSubs]);
@@ -198,6 +203,7 @@ Future<bool> saveAwsFilterSubs(
         'email': subs.email,
         'due_date': subs.dueDate?.toIso8601String(),
         'category': subs.category,
+        'start_date': subs.startDate?.toIso8601String(),
         // subs.dueDate != null ? dateFormat.format(subs.dueDate!).toString() : null,
       });
     }

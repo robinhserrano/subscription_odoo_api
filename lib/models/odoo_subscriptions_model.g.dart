@@ -21,6 +21,9 @@ _$OdooSubscriptionsImpl _$$OdooSubscriptionsImplFromJson(
       nextInvoiceDate: json['next_invoice_date'] == null
           ? null
           : DateTime.parse(json['next_invoice_date'] as String),
+      startDate: json['start_date'] == null
+          ? null
+          : DateTime.parse(json['start_date'] as String),
     );
 
 Map<String, dynamic> _$$OdooSubscriptionsImplToJson(
@@ -33,6 +36,7 @@ Map<String, dynamic> _$$OdooSubscriptionsImplToJson(
       'activity_summary': _$JsonConverterToJson<dynamic, String>(
           instance.activitySummary, const BoolStringConverter().toJson),
       'next_invoice_date': instance.nextInvoiceDate?.toIso8601String(),
+      'start_date': instance.startDate?.toIso8601String(),
     };
 
 Json? _$JsonConverterToJson<Json, Value>(

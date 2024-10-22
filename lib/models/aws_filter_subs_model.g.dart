@@ -23,6 +23,9 @@ _$AwsFilterSubsImpl _$$AwsFilterSubsImplFromJson(Map<String, dynamic> json) =>
       dueDate: json['dueDate'] == null
           ? null
           : DateTime.parse(json['dueDate'] as String),
+      startDate: json['startDate'] == null
+          ? null
+          : DateTime.parse(json['startDate'] as String),
       category: json['category'] as String?,
     );
 
@@ -39,5 +42,6 @@ Map<String, dynamic> _$$AwsFilterSubsImplToJson(_$AwsFilterSubsImpl instance) =>
       'phone': instance.phone,
       'email': instance.email,
       'dueDate': instance.dueDate?.toIso8601String(),
+      'startDate': instance.startDate?.toIso8601String(),
       'category': instance.category,
     };
